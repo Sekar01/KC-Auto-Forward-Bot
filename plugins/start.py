@@ -38,7 +38,7 @@ async def start(bot, message):
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
             photo=random.choice(IMAGE),
-            caption="""Hello I am a Auto Forward Bot devoloped by @hagadmansa, I can forward files from a Public/Private Channel to a Public/Private Group/Channel.""",
+            caption="""Hello I am a Auto Forward Bot devoloped by @kcfilmss, I can forward files from a Public/Private Channel to a Public/Private Group/Channel.""",
             reply_markup=reply_markup,
             parse_mode='html'
         )
