@@ -56,10 +56,6 @@
             "value": "Telegram_files",
             "required": true
         },
-        "FILE_CAPTION": {
-            "description": "A Custom File Caption for your files leave empty if you don't need check readme.md to onow more about this.",
-            "required": false
-        },
         "LOG_CHANNEL": {
             "description": "Bot Logs (notifications) Give a channel id with -100xxxxxxx, Get this value from @TGIDsBot.",
             "value": "-1001744890108",
