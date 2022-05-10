@@ -57,13 +57,13 @@
 ### Deploy To Heroku
 <p>
 <br>
-<a href="https://heroku.com/deploy?template=https://github.com/bakrapalan/AutoForwardBot">
+<a href="https://heroku.com/deploy?template=https://github.com/kckhais/KC-Auto-Forward-Bot">
   <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
 </a>
 </p>
 <p>
 <pre>
-git clone https://github.com/Hagadmansa/evamaria
+git clone https://github.com/kckhais/KC-Auto-Forward-Bot
 # Install Packages
 pip3 install -U -r requirements.txt
 Edit info.py with variables as given below then run bot
