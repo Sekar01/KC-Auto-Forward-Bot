@@ -25,7 +25,7 @@ FILE_CAPTION = environ.get("FILE_CAPTION")
 
 # MongoDB information
 DATABASE_URI = environ.get('DATABASE_URI', "")
-DATABASE_NAME = environ.get('DATABASE_NAME', "HagadmansaRobot")
+DATABASE_NAME = environ.get('DATABASE_NAME', "KCForward")
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Telegram_files')
 
 # Others

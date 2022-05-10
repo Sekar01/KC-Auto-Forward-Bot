@@ -6,7 +6,7 @@ COPY requirements.txt /requirements.txt
 
 RUN cd /
 RUN pip3 install -U pip && pip3 install -U -r requirements.txt
-RUN mkdir /AutoForwardBot
-WORKDIR /AutoForwardBot
+RUN mkdir /KC-Auto-Forward-Bot
+WORKDIR /KC-Auto-Forward-Bot
 COPY start.sh /start.sh
 CMD ["/bin/bash", "/start.sh"]

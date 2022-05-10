@@ -16,7 +16,7 @@ logger = logging.getLogger(__name__)
 
 INDEX_FILES = {}
 
-IMAGE = ["https://telegra.ph/file/cd0ef3ccc5727f037cc96.jpg"]
+IMAGE = ["https://te.legra.ph/file/f58032b4b41f5335e0a33.jpg"]
 
 @Client.on_message(filters.command("start") & filters.incoming & ~filters.edited)
 async def start(bot, message):
@@ -32,9 +32,9 @@ async def start(bot, message):
         await bot.send_message(LOG_CHANNEL, "#NewUser")
     if len(message.command) != 2:
         buttons = [[
-            InlineKeyboardButton('🌐 Website', url='https://hagadmansa.com'),
-            InlineKeyboardButton('📣 Updates', url='https://t.me/hagadmansa')
-        ]]
+            InlineKeyboardButton('⚡️ Main Channel ⚡️', url='https://t.me/KCFilmss'),
+            InlineKeyboardButton('🔰 Main Group 🔰', url='https://t.me/KC_Films')
+            ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
             photo=random.choice(IMAGE),
@@ -65,7 +65,7 @@ async def start(bot, message):
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
             photo=random.choice(IMAGE),
-            caption="""Hello I am a Auto Forward Bot devoloped by @hagadmansa, I can forward files from a Public/Private Channel to a Public/Private Group/Channel.""",
+            caption="""Hello I am a Auto Forward Bot devoloped by @kcfilmss, I can forward files from a Public/Private Channel to a Public/Private Group/Channel.""",
             reply_markup=reply_markup,
             parse_mode='html'
         )
