@@ -1,0 +1,82 @@
+{
+    "name": "Auto Forward Bot",
+    "description": "I am a Auto Forward Bot, I can forward files from a Public/Private Channel to a Public/Private Group/Channel without SESSION STRING.",
+    "stack": "container",
+    "keywords": [
+      "telegram",
+      "auto-filter",
+      "filter",
+      "best",
+      "indian",
+      "pyrogram",
+      "media",
+      "search",
+      "channel",
+      "index",
+      "inline"
+    ],
+    "website": "https://hagadmansa.com",
+    "repository": "https://github.com/bakrapalan/AutoForwardBot",
+    "env": {
+        "ADMINS": {
+            "description": "Id of Admins who have access to Bot, Get this value from @HagadmansaBot command /info.",
+            "value": "1896980230",
+            "required": true
+        },
+        "API_ID": {
+            "description": "API ID to configure Bot ownership, Get this value from https://my.telegram.org",
+            "required": true
+        },
+        "API_HASH": {
+            "description": "API HASH to configure Bot ownership, Get this value from https://my.telegram.org",
+            "required": true
+        },
+        "BOT_TOKEN": {
+            "description": "Your bot token to define on which bot app will work, Get this value from @BotFather.",
+            "required": true
+        },
+        "BOT_USERNAME": {
+            "description": "Your bot username without @ Example:- hagadmansabot. Do not add any <space>.",
+            "required": true
+        },
+        "DATABASE_URI": {
+            "description": "mongoDB URI. Get this value from https://www.mongodb.com. For more help watch this video - https://youtu.be/dsuTn4qV2GA",
+            "required": true
+        },
+        "DATABASE_NAME": {
+            "description": "Name of the database in mongoDB. For more help watch this video - https://youtu.be/dsuTn4qV2GA",
+            "value": "Cluster0",
+            "required": true
+        },
+        "COLLECTION_NAME": {
+            "description": "Name of the collections. Defaults to Telegram_files. If you are using the same database, then use different collection name for each bot",
+            "value": "Telegram_files",
+            "required": true
+        },
+        "FILE_CAPTION": {
+            "description": "A Custom File Caption for your files leave empty if you don't need check readme.md to onow more about this.",
+            "value": "<code>{file_name}</code>",
+            "required": false
+        },
+        "LOG_CHANNEL": {
+            "description": "Bot Logs (notifications) Give a channel id with -100xxxxxxx, Get this value from @TGIDsBot.",
+            "value": "-1001657833865",
+            "required": true
+        },
+        "TARGET_CHANNEL": {
+            "description": "A channel where bot will send files. channel id with -100xxxxxxx, Get this value from @TGIDsBot",
+            "value": "-1001595013671",
+            "required": true
+        }
+    },
+    "addons": [],
+    "buildpacks": [{
+        "url": "heroku/python"
+    }],
+    "formation": {
+        "worker": {
+            "quantity": 1,
+            "size": "free"
+        }
+    }
+}
