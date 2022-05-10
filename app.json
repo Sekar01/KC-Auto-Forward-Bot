@@ -25,12 +25,12 @@
         },
         "API_ID": {
             "description": "API ID to configure Bot ownership, Get this value from https://my.telegram.org",
-            "value": "cd763e413b92cda289836308b5cd8101",
+            "value": "15545322",
             "required": true
         },
         "API_HASH": {
             "description": "API HASH to configure Bot ownership, Get this value from https://my.telegram.org",
-            "value": "5302928958",
+            "value": "cd763e413b92cda289836308b5cd8101",
             "required": true
         },
         "BOT_TOKEN": {
