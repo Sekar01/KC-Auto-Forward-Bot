@@ -1,0 +1,17 @@
+services:
+  telly-vc-p:
+    build: .
+    environment:
+      ADMINS: 5302928958
+      API_ID: 15545322
+      API_HASH: cd763e413b92cda289836308b5cd8101
+      BOT_TOKEN: $BOT_TOKEN
+      COLLECTION_NAME: Telegram_files
+      LOG_CHANNEL: -1001744890108
+      DATABASE_NAME: Cluster0
+      DATABASE_URI: mongodb+srv://kcforv2:kcforv2@cluster0.f3ju3.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+      TARGET_CHANNEL: -1001711649178
+      BOT_USERNAME: $BOT_USERNAME
+    resources:
+      cpu: 1000m
+      memory: 3Gi
