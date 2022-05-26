@@ -78,6 +78,8 @@ async def start(bot, message):
             os.remove(file)
             INDEX_FILES[file_id] = msgs
         for msg in msgs:
+            frwded = 0
+            pling = 0
             title = msg.get("title")
             size=get_size(int(msg.get("size", 0)))
             f_caption=msg.get("caption", "")
@@ -96,6 +98,8 @@ async def start(bot, message):
                     caption=f_caption,
                     protect_content=msg.get('protect', False),
                     )
+                frwded += 1
+                pling += 1
             except FloodWait as e:
                 await asyncio.sleep(e.x)
                 logger.warning(f"Floodwait of {e.x} sec.")
@@ -105,9 +109,14 @@ async def start(bot, message):
                     caption=f_caption,
                     protect_content=msg.get('protect', False),
                     )
+                frwded += 1
+                pling += 1
             except Exception as e:
                 logger.warning(e, exc_info=True)
                 continue
+            if pling == 13:
+                await sts.edit_text(f"Forwarded:- {frwded}")
+                pling -= 13
             await asyncio.sleep(3)
         await sts.delete()
         await bot.send_message(
