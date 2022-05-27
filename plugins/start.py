@@ -58,7 +58,8 @@ async def start(bot, message):
         )
         return
     data = message.command[1]
-    me, totalfiles = data.split("&", 1)
+    me, total = data.split("~", 1)
+    totalfiles, a = total.split(1, "BATCH")
     try:
         pre, file_id = data.split('_', 1)
     except:
