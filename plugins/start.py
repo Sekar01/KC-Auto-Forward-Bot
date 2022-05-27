@@ -117,8 +117,7 @@ async def start(bot, message):
                 logger.warning(e, exc_info=True)
                 continue
             if pling == 1:
-                FRMT = "Now I'm forwarding file into target channel.\n\nTotal Messages: `{total}`\nDone: `{current}`\nRemaining: `{rem}`"
-                await sts.edit(FRMT.format(total=totalfiles, current=frwded, rem=totalfiles-frwded))
+                await sts.edit_text(f"**__Now I'm forwarding file into target channel.__**\n\n**Forwarded:-** <code>{frwded}</code>\n\n**Remaining :-** <code>{totalfiles}</code>")
                 pling -= 1
             await asyncio.sleep(0.5)
         await sts.delete()
