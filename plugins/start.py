@@ -65,9 +65,7 @@ async def start(bot, message):
         pre = ""
     if data.split("-", 1)[0] == "BATCH":
         sts = await message.reply("🙂 I am sending files in your TARGET CHANNEL, when it will complete i will notify you via a message. If i am not sending files in your TARGET CHANNEL then check your logs.")
-        #file_id = data.split("-", 1)[1]
-        file = data.split("-", 1)[1]
-        totalfiles, file_id = file.split("#", 1)
+        file_id = data.split("-", 1)[1]
         msgs = INDEX_FILES.get(file_id)
         frwded = 0
         pling = 0
@@ -123,6 +121,6 @@ async def start(bot, message):
         await sts.delete()
         await bot.send_message(
             chat_id=message.chat.id,
-            text=f"😎 All files have been successfully sent to TARGET CHANNEL, If not sent check your logs.\n\nTotal Files:- {totalfiles}\nForwarded:- <code>{frwded}</code>"
+            text=f"😎 All files have been successfully sent to TARGET CHANNEL, If not sent check your logs.\n\nTotal Files:- sO0N\nForwarded:- <code>{frwded}</code>"
             )
         return
