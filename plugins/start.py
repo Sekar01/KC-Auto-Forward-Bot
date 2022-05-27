@@ -69,6 +69,7 @@ async def start(bot, message):
         file_id = yes.split("-", 1)[1]
         totalfiles = yes.split("-", 1)[0]
         msgs = INDEX_FILES.get(file_id)
+        FRMT = "Generating Link...\nTotal Messages: `{total}`\nDone: `{frwded}`\nRemaining: `{rem}`"
         frwded = 0
         pling = 0
         if not msgs:
@@ -103,7 +104,7 @@ async def start(bot, message):
                 frwded += 1
                 pling += 1
             except FloodWait as e:
-                await asyncio.sleep(0.5)
+                await asyncio.sleep(e.x)
                 logger.warning(f"Floodwait of {e.x} sec.")
                 await bot.send_cached_media(
                     chat_id=TARGET_CHANNEL,
@@ -117,7 +118,7 @@ async def start(bot, message):
                 logger.warning(e, exc_info=True)
                 continue
             if pling == 1:
-                await sts.edit_text(f"**__Now I'm forwarding file into target channel.__**\n\n**Forwarded:-** <code>{frwded}</code>\n\n**Remaining :-** <code>{totalfiles}</code>")
+                await sts.edit(FRMT.format(total=totalfiles, current=frwded, rem=totalfiles-frwded))
                 pling -= 1
             await asyncio.sleep(0.5)
         await sts.delete()
