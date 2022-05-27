@@ -69,7 +69,6 @@ async def start(bot, message):
         file_id = yes.split("-", 1)[1]
         totalfiles = yes.split("-", 1)[0]
         msgs = INDEX_FILES.get(file_id)
-        FRMT = "Generating Link...\nTotal Messages: `{total}`\nDone: `{current}`\nRemaining: `{rem}`"
         frwded = 0
         pling = 0
         if not msgs:
@@ -118,6 +117,7 @@ async def start(bot, message):
                 logger.warning(e, exc_info=True)
                 continue
             if pling == 1:
+                FRMT = "Now I'm forwarding file into target channel.\n\nTotal Messages: `{total}`\nDone: `{current}`\nRemaining: `{rem}`"
                 await sts.edit(FRMT.format(total=totalfiles, current=frwded, rem=totalfiles-frwded))
                 pling -= 1
             await asyncio.sleep(0.5)
