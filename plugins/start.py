@@ -115,7 +115,7 @@ async def start(bot, message):
                 logger.warning(e, exc_info=True)
                 continue
             if pling == 1:
-                await sts.edit_text(f"Forwarded:- <code>{frwded}</code>\n\n Remaining:- <code>({total}-{frwded})</code>")
+                await sts.edit_text(f"Forwarded:- <code>{frwded}</code>")
                 pling -= 1
             await asyncio.sleep(3)
         await sts.delete()
