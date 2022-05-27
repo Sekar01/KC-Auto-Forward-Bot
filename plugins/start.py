@@ -65,9 +65,7 @@ async def start(bot, message):
         pre = ""
     if data.split("-", 1)[0] == "BATCH":
         sts = await message.reply("🙂 I am sending files in your TARGET CHANNEL, when it will complete i will notify you via a message. If i am not sending files in your TARGET CHANNEL then check your logs.")
-        #file_id = data.split("-", 1)[1]
-        a, b = data.split("-", 1)
-        file_id = b.split("&", 1)[1]
+        totalfiles, file_id = data.split("-", 1)[0][1]
         msgs = INDEX_FILES.get(file_id)
         frwded = 0
         pling = 0
