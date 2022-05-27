@@ -67,6 +67,8 @@ async def start(bot, message):
         sts = await message.reply("🙂 I am sending files in your TARGET CHANNEL, when it will complete i will notify you via a message. If i am not sending files in your TARGET CHANNEL then check your logs.")
         file_id = data.split("-", 1)[1]
         msgs = INDEX_FILES.get(file_id)
+        frwded = 0
+        pling = 0
         if not msgs:
             file = await bot.download_media(file_id)
             try: 
@@ -78,8 +80,6 @@ async def start(bot, message):
             os.remove(file)
             INDEX_FILES[file_id] = msgs
         for msg in msgs:
-            frwded = 0
-            pling = 0
             title = msg.get("title")
             size=get_size(int(msg.get("size", 0)))
             f_caption=msg.get("caption", "")
