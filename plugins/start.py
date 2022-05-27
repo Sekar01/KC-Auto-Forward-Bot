@@ -115,12 +115,12 @@ async def start(bot, message):
                 logger.warning(e, exc_info=True)
                 continue
             if pling == 1:
-                await sts.edit_text(f"Forwarded:- {frwded}")
+                await sts.edit_text(f"Forwarded:- <code>{frwded}</code>\n\n Remaining:- {total}-{frwded}")
                 pling -= 1
             await asyncio.sleep(3)
         await sts.delete()
         await bot.send_message(
             chat_id=message.chat.id,
-            text=f"😎 All files have been successfully sent to TARGET CHANNEL, If not sent check your logs.\n\n Forwarded:- {frwded}"
+            text=f"😎 All files have been successfully sent to TARGET CHANNEL, If not sent check your logs.\n\nForwarded:- {frwded}"
             )
         return
