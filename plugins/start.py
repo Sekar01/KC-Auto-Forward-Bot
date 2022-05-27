@@ -2,6 +2,7 @@ import os
 import logging
 import random
 import asyncio
+import time
 from pyrogram import Client, filters
 from pyrogram.errors import ChatAdminRequired, FloodWait
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
@@ -17,6 +18,25 @@ logger = logging.getLogger(__name__)
 INDEX_FILES = {}
 
 IMAGE = ["https://te.legra.ph/file/f58032b4b41f5335e0a33.jpg"]
+
+def time_data(start_time):
+    end = time.time()
+    now = end - start_time
+    now_time = now
+    day = now_time // (24 * 3600)
+    now_time = now_time % (24 * 3600)
+    hour = now_time // 3600
+    now_time %= 3600
+    minutes = now_time // 60
+    now_time %= 60
+    seconds = now_time
+    if(day!=0):
+        return "%dd %dh %dm %ds" % (day, hour, minutes, seconds)
+    if(hour!=0):
+        return "%dh %dm %ds" % (hour, minutes, seconds)
+    else:
+        return "%dm %ds" % (minutes, seconds)
+
 
 @Client.on_message(filters.command("start") & filters.incoming & ~filters.edited)
 async def start(bot, message):
@@ -103,7 +123,7 @@ async def start(bot, message):
                 frwded += 1
                 pling += 1
             except FloodWait as e:
-                await asyncio.sleep(e.x)
+                await asyncio.sleep(0.5)
                 logger.warning(f"Floodwait of {e.x} sec.")
                 await bot.send_cached_media(
                     chat_id=TARGET_CHANNEL,
@@ -117,7 +137,7 @@ async def start(bot, message):
                 logger.warning(e, exc_info=True)
                 continue
             if pling == 1:
-                await sts.edit_text(f"**__Now I'm forwarding file into target channel.__**\n\n**Forwarded:-** <code>{frwded}</code>\n\n**Remaining :-** <code>{totalfiles}</code>")
+                await sts.edit_text(f"**__Now I'm forwarding file into target channel.__**\n\n**Forwarded:-** <code>{frwded}</code>\n\n**Remaining :-** <code>{totalfiles}</code>\n\n⌚ Time :- {time_data(time.time())}")
                 pling -= 1
             await asyncio.sleep(0.5)
         await sts.delete()
