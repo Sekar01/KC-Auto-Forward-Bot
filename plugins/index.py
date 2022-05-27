@@ -101,5 +101,7 @@ async def gen_link_batch(bot, message):
     post = await bot.send_document(LOG_CHANNEL, f"batchmode_{message.from_user.id}.json", file_name="Index.json", caption="⚠️ Generated for Indexing.")
     os.remove(f"batchmode_{message.from_user.id}.json")
     file_id, ref = unpack_new_file_id(post.document.file_id)
+    fileid = file_id + "-{og_msg}"
     await sts.delete()
-    await message.reply(f"Here is your link\nContains `{og_msg}` files.\n https://t.me/{BOT_USERNAME}?start=BATCH-{file_id}")
+    #await message.reply(f"Here is your link\nContains `{og_msg}` files.\n https://t.me/{BOT_USERNAME}?start=BATCH-{file_id}")
+    await message.reply(f"Here is your link\nContains `{og_msg}` files.\n https://t.me/{BOT_USERNAME}?start=BATCH-{fileid}")
