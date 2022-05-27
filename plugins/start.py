@@ -139,7 +139,7 @@ async def start(bot, message):
             if pling == 1:
                 await sts.edit_text(f"**__Now I'm forwarding file into target channel.__**\n\n**Forwarded:-** <code>{frwded}</code>\n\n**Remaining :-** <code>{totalfiles}</code>\n\n⌚ Time :- {time_data(time.time())}")
                 pling -= 1
-            await asyncio.sleep(0.5)
+            await asyncio.sleep(3)
         await sts.delete()
         await bot.send_message(
             chat_id=message.chat.id,
