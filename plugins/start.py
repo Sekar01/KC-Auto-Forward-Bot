@@ -58,12 +58,13 @@ async def start(bot, message):
         )
         return
     data = message.command[1]
-    totalfiles, a = data.split(1, "BATCH")
     try:
         pre, file_id = data.split('_', 1)
     except:
         file_id = data
         pre = ""
+    if data.split("~", 1)[0] == "TOTAL":
+        totalfiles = data.split("~", 1)[1]
     if data.split("-", 1)[0] == "BATCH":
         sts = await message.reply("🙂 I am sending files in your TARGET CHANNEL, when it will complete i will notify you via a message. If i am not sending files in your TARGET CHANNEL then check your logs.")
         file_id = data.split("-", 1)[1]
@@ -122,6 +123,6 @@ async def start(bot, message):
         await sts.delete()
         await bot.send_message(
             chat_id=message.chat.id,
-            text=f"😎 All files have been successfully sent to TARGET CHANNEL, If not sent check your logs.\n\nTotal Forwarded:- <code>{frwded}</code>"
+            text=f"😎 All files have been successfully sent to TARGET CHANNEL, If not sent check your logs.\n\nTotal Files:- {totalfiles}\nForwarded:- <code>{frwded}</code>"
             )
         return
