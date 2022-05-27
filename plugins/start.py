@@ -58,6 +58,8 @@ async def start(bot, message):
         )
         return
     data = message.command[1]
+    tdata = message.command[1]
+    totalfiles = tdata.split("&", 1)[1]
     try:
         pre, file_id = data.split('_', 1)
     except:
@@ -115,7 +117,7 @@ async def start(bot, message):
                 logger.warning(e, exc_info=True)
                 continue
             if pling == 1:
-                await sts.edit_text(f"Forwarded:- <code>{frwded}</code>\nTotal :- <code>{pling}</code>")
+                await sts.edit_text(f"Forwarded:- <code>{frwded}</code>\nTotal :- <code>{totalfiles}</code>")
                 pling -= 1
             await asyncio.sleep(3)
         await sts.delete()
