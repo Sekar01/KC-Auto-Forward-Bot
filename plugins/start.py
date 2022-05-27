@@ -63,8 +63,6 @@ async def start(bot, message):
     except:
         file_id = data
         pre = ""
-    if data.split("~", 1)[0] == "TOTAL":
-        totalfiles = data.split("~", 1)[1]
     if data.split("-", 1)[0] == "BATCH":
         sts = await message.reply("🙂 I am sending files in your TARGET CHANNEL, when it will complete i will notify you via a message. If i am not sending files in your TARGET CHANNEL then check your logs.")
         file_id = data.split("-", 1)[1]
@@ -117,7 +115,7 @@ async def start(bot, message):
                 logger.warning(e, exc_info=True)
                 continue
             if pling == 1:
-                await sts.edit_text(f"Forwarded:- <code>{frwded}</code>\nTotal :- <code>{totalfiles}</code>")
+                await sts.edit_text(f"Forwarded:- <code>{frwded}</code>")
                 pling -= 1
             await asyncio.sleep(3)
         await sts.delete()
