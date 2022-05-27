@@ -102,5 +102,5 @@ async def gen_link_batch(bot, message):
     os.remove(f"batchmode_{message.from_user.id}.json")
     file_id, ref = unpack_new_file_id(post.document.file_id)
     await sts.delete()
-    await message.reply(f"Here is your link\nContains `{og_msg}` files.\n https://t.me/{BOT_USERNAME}?start=BATCH{og_msg}-{file_id}")
+    await message.reply(f"Here is your link\nContains `{og_msg}` files.\n https://t.me/{BOT_USERNAME}?start=BATCH-{og_msg}#{file_id}")
     
