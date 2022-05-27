@@ -103,7 +103,7 @@ async def start(bot, message):
                 frwded += 1
                 pling += 1
             except FloodWait as e:
-                await asyncio.sleep(0.5)
+                await asyncio.sleep(0.1)
                 logger.warning(f"Floodwait of {e.x} sec.")
                 await bot.send_cached_media(
                     chat_id=TARGET_CHANNEL,
