@@ -114,9 +114,9 @@ async def start(bot, message):
             except Exception as e:
                 logger.warning(e, exc_info=True)
                 continue
-            if pling == 10:
+            if pling == 1:
                 await sts.edit_text(f"Forwarded:- {frwded}")
-                pling -= 10
+                pling -= 1
             await asyncio.sleep(3)
         await sts.delete()
         await bot.send_message(
