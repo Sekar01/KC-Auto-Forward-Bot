@@ -69,7 +69,7 @@ async def start(bot, message):
         file_id = yes.split("-", 1)[1]
         totalfiles = yes.split("-", 1)[0]
         msgs = INDEX_FILES.get(file_id)
-        FRMT = "Generating Link...\nTotal Messages: `{total}`\nDone: `{frwded}`\nRemaining: `{rem}`"
+        FRMT = "Generating Link...\nTotal Messages: `{total}`\nDone: `{current}`\nRemaining: `{rem}`"
         frwded = 0
         pling = 0
         if not msgs:
