@@ -20,17 +20,17 @@
     "env": {
         "ADMINS": {
             "description": "Id of Admins who have access to Bot, Get this value from @HagadmansaBot command /info.",
-            "value": "",
+            "value": "1894718424",
             "required": true
         },
         "API_ID": {
             "description": "API ID to configure Bot ownership, Get this value from https://my.telegram.org",
-            "value": "",
+            "value": "16740572",
             "required": true
         },
         "API_HASH": {
             "description": "API HASH to configure Bot ownership, Get this value from https://my.telegram.org",
-            "value": "",
+            "value": "6ba81e6a729668e8a5bb7394318f0ad9",
             "required": true
         },
         "BOT_TOKEN": {
@@ -43,7 +43,7 @@
         },
         "DATABASE_URI": {
             "description": "mongoDB URI. Get this value from https://www.mongodb.com. For more help watch this video - https://youtu.be/dsuTn4qV2GA",
-            "value": "",
+            "value": "mongodb+srv://kcforv2:kcforv2@cluster0.f3ju3.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
             "required": true
         },
         "DATABASE_NAME": {
@@ -58,12 +58,12 @@
         },
         "LOG_CHANNEL": {
             "description": "Bot Logs (notifications) Give a channel id with -100xxxxxxx, Get this value from @TGIDsBot.",
-            "value": "",
+            "value": "-1001382755710",
             "required": true
         },
         "TARGET_CHANNEL": {
             "description": "A channel where bot will send files. channel id with -100xxxxxxx, Get this value from @TGIDsBot",
-            "value": "",
+            "value": "-1001208044920",
             "required": true
         }
     },

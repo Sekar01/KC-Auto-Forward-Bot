@@ -2,7 +2,6 @@ import os
 import logging
 import random
 import asyncio
-import time
 from pyrogram import Client, filters
 from pyrogram.errors import ChatAdminRequired, FloodWait
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
@@ -18,25 +17,6 @@ logger = logging.getLogger(__name__)
 INDEX_FILES = {}
 
 IMAGE = ["https://te.legra.ph/file/f58032b4b41f5335e0a33.jpg"]
-
-def time_data(start_time):
-    end = time.time()
-    now = end - start_time
-    now_time = now
-    day = now_time // (24 * 3600)
-    now_time = now_time % (24 * 3600)
-    hour = now_time // 3600
-    now_time %= 3600
-    minutes = now_time // 60
-    now_time %= 60
-    seconds = now_time
-    if(day!=0):
-        return "%dd %dh %dm %ds" % (day, hour, minutes, seconds)
-    if(hour!=0):
-        return "%dh %dm %ds" % (hour, minutes, seconds)
-    else:
-        return "%dm %ds" % (minutes, seconds)
-
 
 @Client.on_message(filters.command("start") & filters.incoming & ~filters.edited)
 async def start(bot, message):
@@ -85,9 +65,7 @@ async def start(bot, message):
         pre = ""
     if data.split("-", 1)[0] == "BATCH":
         sts = await message.reply("🙂 I am sending files in your TARGET CHANNEL, when it will complete i will notify you via a message. If i am not sending files in your TARGET CHANNEL then check your logs.")
-        yes = data.split("-", 1)[1]
-        file_id = yes.split("-", 1)[1]
-        totalfiles = yes.split("-", 1)[0]
+        file_id = data.split("-", 1)[1]
         msgs = INDEX_FILES.get(file_id)
         frwded = 0
         pling = 0
@@ -137,12 +115,12 @@ async def start(bot, message):
                 logger.warning(e, exc_info=True)
                 continue
             if pling == 1:
-                await sts.edit_text(f"**__Now I'm forwarding file into target channel.__**\n\n**Forwarded:-** <code>{frwded}</code>\n\n**Total Files :-** <code>{totalfiles}</code>\n\n⌚ Time :- {time_data(time.time())}")
+                await sts.edit_text(f"Forwarded:- <code>{frwded}</code> ")
                 pling -= 1
             await asyncio.sleep(3)
         await sts.delete()
         await bot.send_message(
             chat_id=message.chat.id,
-            text=f"😎 All files have been successfully sent to TARGET CHANNEL, If not sent check your logs.\n\nTotal Files:- {totalfiles}\nForwarded:- <code>{frwded}</code>"
+            text=f"😎 All files have been successfully sent to TARGET CHANNEL, If not sent check your logs.\n\nTotal Files:- sO0N\nForwarded:- <code>{frwded}</code>"
             )
         return

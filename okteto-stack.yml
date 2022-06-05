@@ -1,5 +1,5 @@
 services:
-  telly-vc-p:
+  KC-Auto-Forward-Bot:
     build: .
     environment:
       ADMINS: $ADMINS
