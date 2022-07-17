@@ -16,7 +16,7 @@
       "inline"
     ],
     "website": "https://github.com/kckhais/KC-Auto-Forward-Bot",
-    "repository": "https://github.com/kckhais/KC-Auto-Forward-Bot",
+    "repository": "https://github.com/Sekar01/KC-Auto-Forward-Bot",
     "env": {
         "ADMINS": {
             "description": "Id of Admins who have access to Bot, Get this value from @HagadmansaBot command /info.",
